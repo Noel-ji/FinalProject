@@ -1,21 +1,34 @@
 package com.prinCipal.chatbot.member;
 
+import java.time.LocalDateTime;
+
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 public class MemberProfileDto {
-	  private final String nickname;
-	    // private final String email;
-	    private final String profileImage;
-	    private final String socialId; 
-	    private final String provider;
+    
+    private Long id;
+    private String email;
+    private String nickname;
+    private String status;
+    private LocalDateTime withdrawDate;
 
-	    // 엔티티를 받아서 DTO를 생성하는 생성자
-	    public MemberProfileDto(Member member) {
-	        this.nickname = member.getNickname();
-	        this.profileImage = member.getProfileImageUrl();
-	       this.socialId = member.getSocialId(); // member에 소셜 ID 필드가 있다고 가정
-	       this.provider = member.getSocialProvider();
-	    }
+    @Builder
+    private MemberProfileDto(Long id, String email, String nickname, String status, LocalDateTime withdrawDate) {
+        this.id = id;
+        this.email = email;
+        this.nickname = nickname;
+        this.status = status;
+        this.withdrawDate = withdrawDate;
+    }
 
+    public static MemberProfileDto from(Member member) {
+        return MemberProfileDto.builder()
+                .id(member.getUserId())
+                .nickname(member.getNickname())
+                .status(member.getStatus())
+                .withdrawDate(member.getWithdrawDate())
+                .build();
+    }
 }

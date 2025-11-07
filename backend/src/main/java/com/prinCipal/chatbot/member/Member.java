@@ -36,22 +36,20 @@ public class Member {
 	@Column(nullable=false, unique =true)
 	private String nickname;
 	
-	
 	@Column(nullable=false)
 	private String password;
 	
-	
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
-	private UserRole role;
-
-
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 	
+	@Column(name = "withdraw_date")
+	private LocalDateTime withdrawDate;
+
+	@Column(name = "status")
+	private String status;  // ACTIVE / INACTIVE 등 상태 구분용
 	
 	@OneToMany(mappedBy = "member",cascade=CascadeType.ALL, orphanRemoval=false)
 	private List<CounsellingSession> sessions = new ArrayList<>();
@@ -61,11 +59,10 @@ public class Member {
 	private List<CrisisAlert> crisisAlerts = new ArrayList<>();
 	
 	@Builder
-	public Member(String nickname, String password, UserRole role, String socialProvider, 
+	public Member(String nickname, String password, String socialProvider, 
 			String socialId, String profileImageUrl) {
 		this.nickname = nickname;
 		this.password = password;
-		this.role = role; 
 		this.socialProvider = socialProvider;
 		this.socialId = socialId;
 		this.profileImageUrl = profileImageUrl;

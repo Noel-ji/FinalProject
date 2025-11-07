@@ -46,21 +46,21 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	
 		
-	// 사용자 입력 데이터의 유효성을 검사하는 데 필요한 라이브러리
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	
-	// 시큐리티
-	
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-	
-	// oauth2
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	
-	// jwt
-	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+//	// 사용자 입력 데이터의 유효성을 검사하는 데 필요한 라이브러리
+//	implementation 'org.springframework.boot:spring-boot-starter-validation'
+//	
+//	// 시큐리티
+//	
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+//	
+//	// oauth2
+//	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+//	
+//	// jwt
+//	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+//	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+//	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
 }
 
 tasks.named('test') {
