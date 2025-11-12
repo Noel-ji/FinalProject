@@ -35,3 +35,9 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+echo ".metadata/" >> .gitignore
+echo "backend/.metadata/" >> .gitignore
+git add .gitignore
+git commit -m "chore: ignore Eclipse metadata folders"
